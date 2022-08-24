@@ -24,7 +24,6 @@ chmod +x /root/go/bin/haqqd && sudo mv /root/go/bin/haqqd /usr/local/bin/haqqd
 cd $HOME
 
 # Задаем переменные:
-
 MONIKER="your_name"
 CHAIN="haqq_53211-1"
 WALLET_NAME="your_name"
@@ -153,14 +152,13 @@ WALLET_ADDRESS=$(haqqd keys show $WALLET_NAME -a)
 echo 'export WALLET_ADDRESS='${WALLET_ADDRESS} >> $HOME/.bash_profile source $HOME/.bash_profile
 
 # Запрашиваем тестовые токены https://testedge.haqq.network/
-
 # Смотрим данные кошелька, вместо адрес_кошелька_haqq вставляем свой адрес:
 haqqd debug addr адрес_кошелька_haqq
 
-#Проверяем баланс:
+# Проверяем баланс:
 haqqd query bank balances $WALLET_ADDRESS
 
-#Если средства поступили, то создаем валидатора. Сумму можно указать любую
+# Если средства поступили, то создаем валидатора. Сумму можно указать любую
 
 haqqd tx staking create-validator \
   --amount=2000000000000000000aISLM \
