@@ -135,6 +135,9 @@ wget -O $HOME/.haqqd/config/addrbook.json "https://raw.githubusercontent.com/Sta
 sudo systemctl restart haqqd && journalctl -u haqqd -f -o cat
 
 
+### !!! Способ №4 !!!
+
+
 # Проверить статус синхронизации. (В поле catching_up должно быть false.)
 curl localhost:26657/status
 
@@ -183,8 +186,14 @@ source $HOME/.bash_profile
 # Проверка статуса валидатора:
 haqqd query staking validator $VALOPER
 
+###########################################
+# Полезные команды
+
 # Делегировать себе:
 haqqd tx staking delegate $VALOPER 1000000000000000000aISLM --from $WALLET_NAME --chain-id haqq_53211-1
 
 # Выйти из тюрьмы
 haqqd tx slashing unjail --from $WALLET_NAME --chain-id $CHAIN
+
+# Посмотреть версию
+haqqd -v
